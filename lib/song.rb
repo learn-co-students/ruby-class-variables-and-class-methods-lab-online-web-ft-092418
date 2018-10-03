@@ -12,13 +12,13 @@ class Song
     @genre = genre
     @@count+=1
     
-    if  ! @@genres.include? (genre)
-      @@genres.push(genre)
-    end
     
-    if ! @@artists.include? (artist)
-      @@artists.push(artist)
-    end
+    @@genres.push(genre)
+   
+    
+    
+    @@artists.push(artist)
+    
     
     
   end
@@ -27,23 +27,29 @@ class Song
     @@count
   end
   
-  def add_artist(artist)
-    @@artists.push(artist)
-  end
-
-  def self.artists
-    @@artists.uniq
-  end
-
-  def add_genre(genre)
-    @@genres.push(genre)
-  end
-
   def self.genres
-    @@genres.uniq
+    return @@genres.uniq
   end
-
   
+  def self.artists
+    return @@artists.uniq
+  end
+  
+  def  self.genre_count
+    genre_hash={}
+    @@genres.each do |genre|
+    genre_hash[genre]=  @@genres.count(genre)
+    end
+    genre_hash
+  end
+  
+    def  self.artist_count
+    artist_hash={}
+    @@artists.each do |artist|
+    artist_hash[artist]=  @@artists.count(artist)
+    end
+    artist_hash
+  end
   
  
 end
