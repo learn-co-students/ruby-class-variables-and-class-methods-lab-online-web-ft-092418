@@ -27,13 +27,22 @@ class Song
     @@count
   end
   
-  def self.genres
-    return @@genres.uniq
+  def add_artist(artist)
+    @@artists.push(artist)
   end
-  
+
   def self.artists
-    return @@artists.uniq
+    @@artists.uniq
   end
+
+  def add_genre(genre)
+    @@genres.push(genre)
+  end
+
+  def self.genres
+    @@genres.uniq
+  end
+
   
   
  
